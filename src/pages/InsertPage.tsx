@@ -7,7 +7,7 @@ const InsertPage: React.FC = () => {
         <IonPage id="insert">
             <IonHeader>
                 <IonToolbar>
-                    <IonButtons>
+                    <IonButtons slot="start">
                         <IonBackButton />
                     </IonButtons>
                     <IonTitle>Cadastro</IonTitle>
