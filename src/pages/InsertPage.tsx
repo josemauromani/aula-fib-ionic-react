@@ -1,27 +1,43 @@
-import React from 'react'
-import { IonPage, IonHeader, IonTitle, IonContent, IonToolbar, IonButtons, IonBackButton } from '@ionic/react'
-import ContextualNameSetter from '../components/ContextualNameSetter'
+import React from "react";
+import {
+  IonPage,
+  IonHeader,
+  IonToolbar,
+  IonTitle,
+  IonContent,
+  IonButtons,
+  IonBackButton
+} from "@ionic/react";
+import ContextualNameSetter from "../components/ContextualNameSetter";
+import { useHistory } from "react-router";
 
 const InsertPage: React.FC = () => {
-    return (
-        <IonPage id="insert">
-            <IonHeader>
-                <IonToolbar>
-                    <IonButtons slot="start">
-                        <IonBackButton />
-                    </IonButtons>
-                    <IonTitle>Cadastro</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent>
-                <ContextualNameSetter 
-                    initialValue="Nome da Pessoa"
-                    placeholder="Digite o nome"
-                    buttonTitle="Cadastrar"                
-                />
-            </IonContent>
-        </IonPage>
-    )
-}
+  const history = useHistory();
 
-export default InsertPage
+  const handleBack = () => {
+    history.goBack();
+  };
+
+  return (
+    <IonPage id="insert">
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton />
+          </IonButtons>
+          <IonTitle>Lista de Nomes</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <ContextualNameSetter
+          initialValue="Nome da pessoa"
+          placeholder="Insira o nome"
+          buttonTitle="Adicionar"
+          onNameSet={handleBack}
+        />
+      </IonContent>
+    </IonPage>
+  );
+};
+
+export default InsertPage;
